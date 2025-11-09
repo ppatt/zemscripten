@@ -3,7 +3,7 @@ const std = @import("std");
 
 pub const emsdk_ver_major = "4";
 pub const emsdk_ver_minor = "0";
-pub const emsdk_ver_tiny = "3";
+pub const emsdk_ver_tiny = "18";
 pub const emsdk_version = emsdk_ver_major ++ "." ++ emsdk_ver_minor ++ "." ++ emsdk_ver_tiny;
 
 pub fn build(b: *std.Build) void {
@@ -164,7 +164,6 @@ pub fn emccDefaultSettings(allocator: std.mem.Allocator, options: EmccDefaultSet
         },
         else => {},
     }
-    settings.put("USE_OFFSET_CONVERTER", "1") catch unreachable;
     settings.put("MALLOC", @tagName(options.emsdk_allocator)) catch unreachable;
     return settings;
 }
